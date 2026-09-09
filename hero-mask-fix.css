@@ -1,0 +1,13 @@
+/* Final hero slider mask fix: exactly two real photos, contained inside the rounded blue area. */
+.hero-visual{position:relative;display:grid;place-items:center;min-height:610px;overflow:hidden}
+.hero-slider{position:relative;width:min(100%,680px);height:610px;border-radius:38px;overflow:hidden;background:linear-gradient(180deg,#0d4fa8,#083d8b);border:1px solid rgba(255,255,255,.18);box-shadow:0 24px 54px rgba(3,36,90,.22)}
+.hero-slides,.hero-slide,.hero-slide-photo{position:absolute;inset:0;width:100%;height:100%}
+.hero-slide{opacity:0;visibility:hidden;transition:opacity .5s ease,visibility .5s ease;padding:18px}
+.hero-slide.active{opacity:1;visibility:visible}
+.hero-slide-photo{position:relative;inset:auto;display:grid;place-items:center;overflow:hidden;border-radius:28px;background:#0a459d}
+.hero-slide-photo:before{content:"";position:absolute;inset:-8%;background:var(--slide-bg) center/cover no-repeat;filter:blur(24px) brightness(.54) saturate(.92);transform:scale(1.12);opacity:.95}
+.hero-slide-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,32,80,.03),rgba(4,32,80,.18));pointer-events:none}
+.hero-slide-photo img{position:relative;z-index:2;width:auto!important;height:auto!important;max-width:calc(100% - 42px)!important;max-height:calc(100% - 42px)!important;object-fit:contain!important;object-position:center!important;border-radius:22px;filter:drop-shadow(0 20px 28px rgba(0,0,0,.22));transform:none!important}
+.hero-arrow{z-index:8}.hero-dots{z-index:9}
+@media(max-width:1050px){.hero-visual{min-height:500px}.hero-slider{width:min(100%,680px);height:500px}}
+@media(max-width:720px){.hero-visual{min-height:390px;padding:0 2px}.hero-slider{width:100%;height:390px;border-radius:26px}.hero-slide{padding:12px}.hero-slide-photo{border-radius:20px}.hero-slide-photo img{max-width:calc(100% - 22px)!important;max-height:calc(100% - 22px)!important;border-radius:16px}.hero-prev{left:10px}.hero-next{right:10px}}
