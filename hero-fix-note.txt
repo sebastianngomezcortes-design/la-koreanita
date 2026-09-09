@@ -1,0 +1,1 @@
+Preparando corrección final del slider del hero con exactamente dos imágenes reales: sucursal y bodega.
