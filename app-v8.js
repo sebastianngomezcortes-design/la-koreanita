@@ -79,9 +79,7 @@ function productArt(name){
 }
 
 const weeklyPack=[
- {id:'W711',name:'711 Abrigo 3/4 Hombre',image:(window.KOREANITA_PRODUCT_IMAGES||{}).JSD01||''},
- {id:'W708',name:'708 Abrigo 3/4 Dama',image:(window.KOREANITA_PRODUCT_IMAGES||{}).JSD02||''},
- {id:'W705',name:'705 Abrigo Corto Dama',image:(window.KOREANITA_PRODUCT_IMAGES||{}).JSD06||''}
+ {id:'HALLOWEEN',name:'Fardo Disfraz Halloween',image:(window.KOREANITA_ASSETS||{}).halloweenPromo||''}
 ];
 const allProducts=[...products,...weeklyPack];
 const cart={};
