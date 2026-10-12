@@ -85,6 +85,7 @@ const boliviaPromo={id:'HALLOWEEN-BOLIVIA',name:'Fardo Disfraces Halloween · Pr
 const catalogProducts=[boliviaPromo,...products];
 const allProducts=[...catalogProducts,...weeklyPack];
 const cart={};
+window.addBoliviaPromo=()=>{cart[boliviaPromo.id]=(cart[boliviaPromo.id]||0)+1;render();document.getElementById('carrito')?.scrollIntoView({behavior:'smooth',block:'start'});};
 window.addPack=()=>{weeklyPack.forEach(p=>cart[p.id]=(cart[p.id]||0)+1);render();document.getElementById('carrito')?.scrollIntoView({behavior:'smooth',block:'start'});};
 const grid=document.getElementById('productGrid'),cartList=document.getElementById('cartList'),cartCount=document.getElementById('cartCount');
 document.getElementById('year').textContent=new Date().getFullYear();
