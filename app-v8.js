@@ -81,14 +81,16 @@ function productArt(name){
 const weeklyPack=[
  {id:'HALLOWEEN',name:'Fardo Disfraz Halloween',image:(window.KOREANITA_ASSETS||{}).halloweenPromo||''}
 ];
-const allProducts=[...products,...weeklyPack];
+const boliviaPromo={id:'HALLOWEEN-BOLIVIA',name:'Fardo Disfraces Halloween · Promoción Bolivia',image:window.KOREANITA_BOLIVIA_PROMO,country:'Bolivia',offer:'Bs 2.500 · Del 12 al 18 de octubre · Envío gratis en Bolivia · Stock limitado'};
+const catalogProducts=[boliviaPromo,...products];
+const allProducts=[...catalogProducts,...weeklyPack];
 const cart={};
 window.addPack=()=>{weeklyPack.forEach(p=>cart[p.id]=(cart[p.id]||0)+1);render();document.getElementById('carrito')?.scrollIntoView({behavior:'smooth',block:'start'});};
 const grid=document.getElementById('productGrid'),cartList=document.getElementById('cartList'),cartCount=document.getElementById('cartCount');
 document.getElementById('year').textContent=new Date().getFullYear();
-function card(p){return '<article class="product" data-id="'+p.id+'"><div class="media"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"></div><div class="body"><h3>'+p.name+'</h3><button class="add" type="button">Agregar al carro</button></div></article>'}
-grid.innerHTML=products.map(card).join('');
-grid.querySelectorAll('.product').forEach(el=>{const p=products.find(x=>x.id===el.dataset.id),a=el.querySelector('.add');a.onclick=()=>{cart[p.id]=(cart[p.id]||0)+1;render();a.textContent='Agregado ✓';setTimeout(()=>a.textContent='Agregar al carro',900)}});
+function card(p){return '<article class="product" data-id="'+p.id+'"><div class="media"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"></div><div class="body"><h3>'+p.name+'</h3>'+(p.offer?'<p class="promo-details">'+p.offer+'</p>':'')+'<button class="add" type="button">Agregar al carro</button></div></article>'}
+grid.innerHTML=catalogProducts.map(card).join('');
+grid.querySelectorAll('.product').forEach(el=>{const p=catalogProducts.find(x=>x.id===el.dataset.id),a=el.querySelector('.add');a.onclick=()=>{cart[p.id]=(cart[p.id]||0)+1;render();a.textContent='Agregado ✓';setTimeout(()=>a.textContent='Agregar al carro',900)}});
 function render(){
  const e=Object.entries(cart).map(([id,qty])=>({product:allProducts.find(p=>p.id===id),qty})).filter(x=>x.product);
  cartCount.textContent=e.reduce((s,i)=>s+i.qty,0);
@@ -100,7 +102,8 @@ window.removeItem=id=>{delete cart[id];render()};
 function message(country){
  const e=Object.entries(cart).map(([id,qty])=>({product:allProducts.find(p=>p.id===id),qty})).filter(x=>x.product);
  if(!e.length){alert('Agrega al menos un producto antes de finalizar.');return null}
- return encodeURIComponent(['Hola La Koreanita, quiero consultar este pedido desde la web:','',...e.map(i=>'• '+i.product.name+' x'+i.qty),'','Atención: '+country,'','Por favor confirmar stock, pago y entrega.','','Nombre:','Ciudad:'].join('\n'))
+ if(country==='Chile'&&e.some(i=>i.product.country==='Bolivia')){alert('La promoción de Halloween es válida solo para Bolivia. Finaliza por WhatsApp Bolivia o quita este producto para continuar con Chile.');return null}
+ return encodeURIComponent(['Hola La Koreanita, quiero consultar este pedido desde la web:','',...e.map(i=>'• '+i.product.name+' x'+i.qty+(i.product.offer?' — '+i.product.offer:'')),'','Atención: '+country,'','Por favor confirmar stock, pago y entrega.','','Nombre:','Ciudad:'].join('\n'))
 }
 document.getElementById('waChile').onclick=()=>{const m=message('Chile');if(m)window.open('https://wa.me/56929954812?text='+m,'_blank')};
 document.getElementById('waBolivia').onclick=()=>{const m=message('Bolivia');if(m)window.open('https://wa.me/59178373242?text='+m,'_blank')};
