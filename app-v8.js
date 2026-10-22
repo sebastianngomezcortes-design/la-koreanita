@@ -78,15 +78,9 @@ function productArt(name){
  return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
 }
 
-const weeklyPack=[
- {id:'HALLOWEEN',name:'Fardo Disfraz Halloween',image:(window.KOREANITA_ASSETS||{}).halloweenPromo||''}
-];
-const boliviaPromo={id:'HALLOWEEN-BOLIVIA',name:'Fardo Disfraces Halloween · Promoción Bolivia',image:window.KOREANITA_BOLIVIA_PROMO,country:'Bolivia',offer:'Bs 2.500 · Del 12 al 18 de octubre · Envío gratis en Bolivia · Stock limitado'};
-const catalogProducts=[boliviaPromo,...products];
-const allProducts=[...catalogProducts,...weeklyPack];
+const catalogProducts=products;
+const allProducts=catalogProducts;
 const cart={};
-window.addBoliviaPromo=()=>{cart[boliviaPromo.id]=(cart[boliviaPromo.id]||0)+1;render();document.getElementById('carrito')?.scrollIntoView({behavior:'smooth',block:'start'});};
-window.addPack=()=>{weeklyPack.forEach(p=>cart[p.id]=(cart[p.id]||0)+1);render();document.getElementById('carrito')?.scrollIntoView({behavior:'smooth',block:'start'});};
 const grid=document.getElementById('productGrid'),cartList=document.getElementById('cartList'),cartCount=document.getElementById('cartCount');
 document.getElementById('year').textContent=new Date().getFullYear();
 function card(p){return '<article class="product" data-id="'+p.id+'"><div class="media"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"></div><div class="body"><h3>'+p.name+'</h3>'+(p.offer?'<p class="promo-details">'+p.offer+'</p>':'')+'<button class="add" type="button">Agregar al carro</button></div></article>'}
@@ -103,7 +97,6 @@ window.removeItem=id=>{delete cart[id];render()};
 function message(country){
  const e=Object.entries(cart).map(([id,qty])=>({product:allProducts.find(p=>p.id===id),qty})).filter(x=>x.product);
  if(!e.length){alert('Agrega al menos un producto antes de finalizar.');return null}
- if(country==='Chile'&&e.some(i=>i.product.country==='Bolivia')){alert('La promoción de Halloween es válida solo para Bolivia. Finaliza por WhatsApp Bolivia o quita este producto para continuar con Chile.');return null}
  return encodeURIComponent(['Hola La Koreanita, quiero consultar este pedido desde la web:','',...e.map(i=>'• '+i.product.name+' x'+i.qty+(i.product.offer?' — '+i.product.offer:'')),'','Atención: '+country,'','Por favor confirmar stock, pago y entrega.','','Nombre:','Ciudad:'].join('\n'))
 }
 document.getElementById('waChile').onclick=()=>{const m=message('Chile');if(m)window.open('https://wa.me/56929954812?text='+m,'_blank')};
