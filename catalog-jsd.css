@@ -113,3 +113,8 @@
 :is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media{padding:0;background:#f7f8fa;display:block}
 :is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media::before{display:none}
 :is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
+
+/* Second catalog photography batch: complete centered products. */
+:is(.product[data-id="JSD26"],.product[data-id="JSD34"],.product[data-id="JSD35"],.product[data-id="JSD36"],.product[data-id="JSD37"],.product[data-id="JSD38"],.product[data-id="JSD40"],.product[data-id="JSD41"],.product[data-id="JSD42"],.product[data-id="JSD43"],.product[data-id="JSD47"]) .media{padding:0;background:#f7f8fa;display:block}
+:is(.product[data-id="JSD26"],.product[data-id="JSD34"],.product[data-id="JSD35"],.product[data-id="JSD36"],.product[data-id="JSD37"],.product[data-id="JSD38"],.product[data-id="JSD40"],.product[data-id="JSD41"],.product[data-id="JSD42"],.product[data-id="JSD43"],.product[data-id="JSD47"]) .media::before{display:none}
+:is(.product[data-id="JSD26"],.product[data-id="JSD34"],.product[data-id="JSD35"],.product[data-id="JSD36"],.product[data-id="JSD37"],.product[data-id="JSD38"],.product[data-id="JSD40"],.product[data-id="JSD41"],.product[data-id="JSD42"],.product[data-id="JSD43"],.product[data-id="JSD47"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
