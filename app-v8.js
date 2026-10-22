@@ -85,7 +85,7 @@ const allProducts=catalogProducts;
 const cart={};
 const grid=document.getElementById('productGrid'),cartList=document.getElementById('cartList'),cartCount=document.getElementById('cartCount');
 document.getElementById('year').textContent=new Date().getFullYear();
-function card(p){return '<article class="product" data-id="'+p.id+'"><div class="media"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy"></div><div class="body"><h3>'+p.name+'</h3>'+(p.offer?'<p class="promo-details">'+p.offer+'</p>':'')+'<button class="add" type="button">Agregar al carro</button></div></article>'}
+function card(p){return '<article class="product" data-id="'+p.id+'"><div class="media"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy" decoding="async" width="800" height="800"></div><div class="body"><h3>'+p.name+'</h3>'+(p.offer?'<p class="promo-details">'+p.offer+'</p>':'')+'<button class="add" type="button">Agregar al carro</button></div></article>'}
 grid.innerHTML=catalogProducts.map(card).join('');
 grid.querySelectorAll('.product').forEach(el=>{const p=catalogProducts.find(x=>x.id===el.dataset.id),a=el.querySelector('.add');a.onclick=()=>{cart[p.id]=(cart[p.id]||0)+1;render();a.textContent='Agregado ✓';setTimeout(()=>a.textContent='Agregar al carro',900)}});
 function render(){
