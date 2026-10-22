@@ -108,3 +108,8 @@
   .cart-footer{padding:14px 18px 18px}
   .checkout button{min-height:48px;font-size:11.5px}
 }
+
+/* Photography standard: centered, complete garments on an equal square canvas. */
+:is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media{padding:0;background:#f7f8fa;display:block}
+:is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media::before{display:none}
+:is(.product[data-id="JSD02"],.product[data-id="JSD19"],.product[data-id="JSD22"],.product[data-id="JSD23"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
