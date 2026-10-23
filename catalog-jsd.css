@@ -123,3 +123,8 @@
 :is(.product[data-id="JSD49"],.product[data-id="JSD50"],.product[data-id="JSD51"],.product[data-id="JSD86"],.product[data-id="JSD52"],.product[data-id="JSD53"],.product[data-id="JSD54"]) .media{padding:0;background:#f7f8fa;display:block}
 :is(.product[data-id="JSD49"],.product[data-id="JSD50"],.product[data-id="JSD51"],.product[data-id="JSD86"],.product[data-id="JSD52"],.product[data-id="JSD53"],.product[data-id="JSD54"]) .media::before{display:none}
 :is(.product[data-id="JSD49"],.product[data-id="JSD50"],.product[data-id="JSD51"],.product[data-id="JSD86"],.product[data-id="JSD52"],.product[data-id="JSD53"],.product[data-id="JSD54"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
+
+/* Knitwear and fleece batch: consistent square framing. */
+:is(.product[data-id="JSD55"],.product[data-id="JSD56"],.product[data-id="JSD57"],.product[data-id="JSD59"],.product[data-id="JSD63"],.product[data-id="JSD65"],.product[data-id="JSD66"],.product[data-id="JSD67"]) .media{padding:0;background:#f7f8fa;display:block}
+:is(.product[data-id="JSD55"],.product[data-id="JSD56"],.product[data-id="JSD57"],.product[data-id="JSD59"],.product[data-id="JSD63"],.product[data-id="JSD65"],.product[data-id="JSD66"],.product[data-id="JSD67"]) .media::before{display:none}
+:is(.product[data-id="JSD55"],.product[data-id="JSD56"],.product[data-id="JSD57"],.product[data-id="JSD59"],.product[data-id="JSD63"],.product[data-id="JSD65"],.product[data-id="JSD66"],.product[data-id="JSD67"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
