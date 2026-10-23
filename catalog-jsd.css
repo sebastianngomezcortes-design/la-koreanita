@@ -133,3 +133,8 @@
 :is(.product[data-id="JSD68"],.product[data-id="JSD87"],.product[data-id="JSD88"],.product[data-id="JSD72"],.product[data-id="JSD74"],.product[data-id="JSD75"],.product[data-id="JSD77"],.product[data-id="JSD76"],.product[data-id="JSD78"]) .media{padding:0;background:#f7f8fa;display:block}
 :is(.product[data-id="JSD68"],.product[data-id="JSD87"],.product[data-id="JSD88"],.product[data-id="JSD72"],.product[data-id="JSD74"],.product[data-id="JSD75"],.product[data-id="JSD77"],.product[data-id="JSD76"],.product[data-id="JSD78"]) .media::before{display:none}
 :is(.product[data-id="JSD68"],.product[data-id="JSD87"],.product[data-id="JSD88"],.product[data-id="JSD72"],.product[data-id="JSD74"],.product[data-id="JSD75"],.product[data-id="JSD77"],.product[data-id="JSD76"],.product[data-id="JSD78"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
+
+/* Work belt and small handbag: consistent square framing. */
+:is(.product[data-id="JSD81"],.product[data-id="JSD85"]) .media{padding:0;background:#f7f8fa;display:block}
+:is(.product[data-id="JSD81"],.product[data-id="JSD85"]) .media::before{display:none}
+:is(.product[data-id="JSD81"],.product[data-id="JSD85"]) .media img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center;filter:none}
